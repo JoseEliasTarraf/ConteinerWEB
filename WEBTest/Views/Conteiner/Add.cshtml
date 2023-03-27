@@ -1,0 +1,37 @@
+﻿@using WEBTest.Models.Enums
+@model Conteiner
+
+<h1>Novo Conteiner</h1>
+
+<div class="row">
+    <form asp-action="Add">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form">
+            <label asp-for="Cliente" class="control-label"></label>
+            <input asp-for="Cliente" class="form-control" />
+        </div>
+        <div class="form">
+            <label asp-for="Tipo" class="control-label"></label>
+            <input asp-for="Tipo" class="form-control" />
+        </div>
+        <div class="form">
+            <label asp-for="Categoria" class="control-label"></label>
+            <select asp-for="Categoria" asp-items="Html.GetEnumSelectList<Categoria>()" class="form-control"></select>
+        </div>
+        <div class="form">
+            <label asp-for="Status" class="control-label"></label>
+            <select asp-for="Status" asp-items="Html.GetEnumSelectList<Status>()" class="form-control"></select>
+        </div>
+        <h2></h2>
+        <div>
+            <input type="submit" value="Adicionar" class="btn btn-primary btn-sm" />
+            <a class="btn btn-dark btn-sm" href="/Conteiner/Index?id">Voltar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

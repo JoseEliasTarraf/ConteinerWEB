@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Movimentações>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Conteiner ID</th>
+            <th scope="col">Tipo</th>
+            <th scope="col">Data Incial</th>
+            <th scope="col">Data Final</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var cl in Model)
+            {
+                <tr>
+                    <th scope="row">@cl.Id</th>
+                    <td>@cl.ConteinerId</td>
+                    <td>@cl.Tipo</td>
+                    <td>@cl.DataInitial</td>
+                    <td>@cl.DataFinal</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary btn-sm" href="/Moviment/Add?id>Add">Adicionar</a>
+<a class="btn btn-primary btn-sm" href="/Home/Index?index>Index">Voltar</a>

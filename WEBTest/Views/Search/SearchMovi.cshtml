@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Movimentações>
+
+<h1>Movimentações</h1>
+
+@using (Html.BeginForm("SearchMovi", "Search", FormMethod.Get))
+{
+    @Html.TextBox("searching")
+    <input type="submit" value="searching" />
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <td>Tipo</td>
+            <td>Data Incial</td>
+            <td>Data Final</td>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="" style="color:red">
+                    Conteiner não encontrado
+                </td>
+            </tr>
+        }
+        else
+        {
+            foreach (var cl in Model)
+            {
+                <tr>
+                    <td>@cl.Tipo</td>
+                    <td>@cl.DataInitial</td>
+                    <td>@cl.DataFinal</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+<a class="btn btn-primary btn-sm" href="/Moviment/Index?id>Index">Voltar</a>

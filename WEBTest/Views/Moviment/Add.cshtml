@@ -1,0 +1,37 @@
+﻿@using WEBTest.Models.Enums
+@model Movimentações
+
+<h1>Novo Conteiner</h1>
+
+<div class="row">
+    <form asp-action="Add">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form">
+            <label asp-for="ConteinerId" class="control-label"></label>
+            <input asp-for="ConteinerId" class="form-control" />
+        </div>
+        <div class="form">
+            <label asp-for="Tipo" class="control-label"></label>
+            <select asp-for="Tipo" asp-items="Html.GetEnumSelectList<Tipo>()" class="form-control"></select>
+        </div>
+        <div class="form">
+            <label asp-for="DataInitial" class="control-label"></label>
+            <input asp-for="DataInitial" class="form-control" />
+        </div>
+        <div class="form">
+            <label asp-for="DataFinal" class="control-label"></label>
+            <input asp-for="DataFinal" class="form-control" />
+        </div>
+        <h2></h2>
+        <div>
+            <input type="submit" value="Adicionar" class="btn btn-primary btn-sm" />
+            <a class="btn btn-dark btn-sm" href="/Moviment/Index?id">Voltar</a>
+        </div>
+    </form>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
